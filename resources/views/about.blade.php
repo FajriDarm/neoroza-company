@@ -77,15 +77,38 @@
       color: var(--primary);
     }
     
+    /* Mobile menu animation */
     .mobile-menu {
-      transition: all 0.3s ease;
       max-height: 0;
       overflow: hidden;
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateY(-10px);
     }
     
-    .mobile-menu.open {
-      max-height: 500px;
+    .mobile-menu.show {
+      max-height: 300px;
+      opacity: 1;
+      transform: translateY(0);
     }
+    
+    .mobile-menu-item {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .mobile-menu.show .mobile-menu-item {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .mobile-menu.show .mobile-menu-item:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.show .mobile-menu-item:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.show .mobile-menu-item:nth-child(3) { transition-delay: 0.3s; }
+    .mobile-menu.show .mobile-menu-item:nth-child(4) { transition-delay: 0.4s; }
+    
+
     
     /* Scroll Animation Styles */
     .animate-on-scroll {
@@ -166,13 +189,13 @@
   <!-- Navbar -->
   <nav class="bg-white shadow-md sticky top-0 z-50 transition-slow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
+      <div class="flex justify-between h-16 items-center border-b border-gray-200">
         <!-- Left (Logo) -->
         <div class="flex items-center animate-slide-in-left" style="animation-delay: 0.1s">
           <button id="mobileMenuBtn" class="md:hidden text-white bg-indigo-600 p-2 rounded-md mr-2 transition-medium hover:bg-indigo-700 hover:shadow-lg">
             <i class="fas fa-bars"></i>
           </button>
-          <a href="/dashboard" class="flex items-center space-x-2 hover-grow">
+          <a href="/" class="flex items-center space-x-2 hover-grow">
             <img src="{{ asset('img/neorozaLogo.png') }}" alt="Neoroza Logo" class="h-8 w-auto animate-pulse" style="animation-delay: 0.5s"/>
           </a>
         </div>
@@ -204,15 +227,27 @@
         </div>
       </div>
     </div> --}}
-
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden px-4 py-3 space-y-2 bg-white border-t animate-fade-in-down">
-      <a href="/dashboard" class="block text-indigo-600 font-semibold transition-medium hover:pl-2">Home</a>
-      <a href="/about" class="block text-gray-700 hover:text-indigo-600 transition-medium hover:pl-2">About</a>
-      <a href="/services" class="block text-gray-700 hover:text-indigo-600 transition-medium hover:pl-2">Services</a>
-      <a href="/contact" class="block text-gray-700 hover:text-indigo-600 transition-medium hover:pl-2">Contact</a>
-    </div>
   </nav>
+
+  <!-- Mobile menu - positioned outside nav to appear below the border -->
+  <div id="mobileMenu" class="md:hidden mobile-menu bg-white border-b border-gray-200 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-3 space-y-2">
+        <a href="/" class="mobile-menu-item block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-300 ease-in-out">
+          <i class="fas fa-home mr-2"></i> Home
+        </a>
+        <a href="/about" class="mobile-menu-item block py-2 px-3 text-indigo-600 bg-indigo-50 font-semibold rounded-md transition-all duration-300 ease-in-out">
+          <i class="fas fa-building mr-2"></i> About
+        </a>
+        <a href="/services" class="mobile-menu-item block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-300 ease-in-out">
+          <i class="fas fa-cogs mr-2"></i> Services
+        </a>
+        <a href="/contact" class="mobile-menu-item block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-300 ease-in-out">
+          <i class="fas fa-envelope mr-2"></i> Contact
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero-gradient py-20">
@@ -658,19 +693,31 @@
     document.addEventListener('DOMContentLoaded', () => {
       animateOnScroll();
       
-      // Mobile menu toggle
+      // Mobile menu toggle with animation
       const mobileMenuBtn = document.getElementById('mobileMenuBtn');
       const mobileMenu = document.getElementById('mobileMenu');
       
       mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
         const icon = mobileMenuBtn.querySelector('i');
-        if (mobileMenu.classList.contains('open')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-        } else {
+        
+        if (mobileMenu.classList.contains('show')) {
+          // Close menu with animation
+          mobileMenu.classList.remove('show');
+          setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+          }, 300); // Wait for animation to complete
+          
           icon.classList.remove('fa-times');
           icon.classList.add('fa-bars');
+        } else {
+          // Open menu with animation
+          mobileMenu.classList.remove('hidden');
+          setTimeout(() => {
+            mobileMenu.classList.add('show');
+          }, 10); // Small delay to ensure hidden class is removed
+          
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
         }
       });
 

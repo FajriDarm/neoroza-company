@@ -100,6 +100,38 @@
       to { opacity: 1; }
     }
     
+    /* Mobile menu animation */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    
+    .mobile-menu.show {
+      max-height: 300px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .mobile-menu-item {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .mobile-menu.show .mobile-menu-item {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .mobile-menu.show .mobile-menu-item:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.show .mobile-menu-item:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.show .mobile-menu-item:nth-child(3) { transition-delay: 0.3s; }
+    .mobile-menu.show .mobile-menu-item:nth-child(4) { transition-delay: 0.4s; }
+    }
+    
     @keyframes fadeInUp {
       from { 
         opacity: 0;
@@ -114,52 +146,67 @@
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
   <!-- Navbar -->
-  <nav class="bg-white shadow-md sticky top-0 z-50">
+  <nav class="bg-white shadow-md sticky top-0 z-50 transition-slow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
-        <div class="flex items-center">
-          <button id="mobileMenuBtn" class="md:hidden text-white bg-indigo-600 p-2 rounded-md mr-2">
+      <div class="flex justify-between h-16 items-center border-b border-gray-200">
+        <!-- Left (Logo) -->
+        <div class="flex items-center animate-slide-in-left" style="animation-delay: 0.1s">
+          <button id="mobileMenuBtn" class="md:hidden text-white bg-indigo-600 p-2 rounded-md mr-2 transition-medium hover:bg-indigo-700 hover:shadow-lg">
             <i class="fas fa-bars"></i>
           </button>
-          <a href="/" class="flex items-center space-x-2">
-            <img src="{{ asset('img/neorozaLogo.png') }}" alt="Neoroza Logo" class="h-8 w-auto"/>
+          <a href="/" class="flex items-center space-x-2 hover-grow">
+            <img src="{{ asset('img/neorozaLogo.png') }}" alt="Neoroza Logo" class="h-8 w-auto animate-pulse" style="animation-delay: 0.5s"/>
           </a>
         </div>
 
-        <div id="navbarNav" class="hidden md:flex space-x-6">
-          <a href="/" class="flex items-center hover:text-indigo-600">
+        <!-- Center Navigation -->
+        <div id="navbarNav" class="hidden md:flex space-x-6 animate-fade-in-down" style="animation-delay: 0.2s">
+          <a href="/" class="flex items-center hover:text-indigo-600 transition-medium">
             <i class="fas fa-home mr-1"></i> Home
           </a>
-          <a href="/about" class="flex items-center hover:text-indigo-600">
+          <a href="/about" class="flex items-center hover:text-indigo-600 transition-medium">
             <i class="fas fa-building mr-1"></i> About
           </a>
-          <a href="/services" class="flex items-center text-indigo-600 font-semibold hover:underline">
+          <a href="/services" class="flex items-center text-indigo-600 font-semibold hover:underline transition-medium">
             <i class="fas fa-cogs mr-1"></i> Services
           </a>
-          <a href="/contact" class="flex items-center hover:text-indigo-600">
+          <a href="/contact" class="flex items-center hover:text-indigo-600 transition-medium">
             <i class="fas fa-envelope mr-1"></i> Contact
           </a>
         </div>
 
-        {{-- <div class="flex items-center space-x-3">
+        {{-- <!-- Right (User) -->
+        <div class="flex items-center space-x-3 animate-slide-in-right" style="animation-delay: 0.3s">
           <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name ?? 'User') }}&background=6366f1&color=fff"
-            alt="User Avatar" class="w-8 h-8 rounded-full border-2 border-indigo-400"/>
+            alt="User Avatar" class="w-8 h-8 rounded-full border-2 border-indigo-400 transition-medium hover:scale-110 hover:shadow"/>
           <span class="text-sm font-medium">{{ Auth::user()->name ?? 'User' }}</span>
-          <a href="/logout" class="text-gray-500 hover:text-red-500">
+          <a href="/logout" class="text-gray-500 hover:text-red-500 transition-medium">
             <i class="fas fa-sign-out-alt"></i>
           </a>
         </div>
       </div>
     </div> --}}
-
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden px-4 py-3 space-y-2 bg-white border-t">
-      <a href="/" class="block text-gray-700 hover:text-indigo-600 hover:pl-2">Home</a>
-      <a href="/about" class="block text-gray-700 hover:text-indigo-600 hover:pl-2">About</a>
-      <a href="/services" class="block text-indigo-600 font-semibold hover:pl-2">Services</a>
-      <a href="/contact" class="block text-gray-700 hover:text-indigo-600 hover:pl-2">Contact</a>
-    </div>
   </nav>
+
+  <!-- Mobile menu - positioned outside nav to appear below the border -->
+  <div id="mobileMenu" class="md:hidden mobile-menu bg-white border-b border-gray-200 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-3 space-y-2">
+        <a href="/" class="mobile-menu-item block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-300 ease-in-out">
+          <i class="fas fa-home mr-2"></i> Home
+        </a>
+        <a href="/about" class="mobile-menu-item block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-300 ease-in-out">
+          <i class="fas fa-building mr-2"></i> About
+        </a>
+        <a href="/services" class="mobile-menu-item block py-2 px-3 text-indigo-600 bg-indigo-50 font-semibold rounded-md transition-all duration-300 ease-in-out">
+          <i class="fas fa-cogs mr-2"></i> Services
+        </a>
+        <a href="/contact" class="mobile-menu-item block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-300 ease-in-out">
+          <i class="fas fa-envelope mr-2"></i> Contact
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero-gradient py-20">
@@ -420,17 +467,29 @@
       });
     };
 
-    // Mobile menu toggle
+    // Mobile menu toggle with animation
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     
     mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
       const icon = mobileMenuBtn.querySelector('i');
-      if (mobileMenu.classList.contains('hidden')) {
+      
+      if (mobileMenu.classList.contains('show')) {
+        // Close menu with animation
+        mobileMenu.classList.remove('show');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300); // Wait for animation to complete
+        
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
       } else {
+        // Open menu with animation
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+          mobileMenu.classList.add('show');
+        }, 10); // Small delay to ensure hidden class is removed
+        
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-times');
       }
