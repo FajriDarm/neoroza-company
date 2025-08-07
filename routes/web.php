@@ -30,6 +30,10 @@ Route::get('/services', function () {
     return view('services');
 });
 
+Route::get('/test', action: function () {
+    return view('test');
+});
+
 // Route Contact (POST)
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'send']);
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

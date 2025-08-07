@@ -205,7 +205,7 @@
         <!-- Logo -->
         <div class="flex items-center animate-fade-in">
           <button id="mobileMenuToggle"
-            class="md:hidden mr-3 px-3 py-2 rounded-lg bg-primary-500 text-white hover:bg-primary-600 transition-colors focus-ring"
+            class="md:hidden mr-3 px-3 rounded-lg bg-primary-500 text-white hover:bg-primary-600 transition-colors focus-ring"
             aria-label="Toggle menu">
             <i class="fas fa-bars text-sm"></i>
           </button>
