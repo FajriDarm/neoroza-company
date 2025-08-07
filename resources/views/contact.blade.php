@@ -583,9 +583,9 @@
                         <h3 class="text-xl font-bold text-gray-800">WhatsApp</h3>
                     </div>
                     <div class="text-center">
-                        <a href="https://wa.me/6281383734851" target="_blank"
+                        <a href="https://wa.me/628811998070" target="_blank"
                             class="text-green-600 hover:text-green-800 font-semibold text-lg transition-colors duration-300">
-                            +62 881-9980-70
+                            +62 881-1998-070
                         </a>
                     </div>
                 </div>
