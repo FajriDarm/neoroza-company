@@ -805,11 +805,11 @@
           🚀 Mari wujudkan visi digital Anda bersama tim expert Neoroza. Customer service dalam 24 jam!
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button
+          <a href="https://wa.me/628811998070"
             class="glass text-black px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:bg-white hover:bg-opacity-20 flex items-center">
             <i class="fas fa-phone mr-2"></i>
             Hubungi Kami Sekarang
-          </button>
+          </a href="">
         </div>
         <div class="flex justify-center items-center space-x-6 mt-8">
           <div class="flex items-center text-gray-600">

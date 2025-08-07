@@ -1128,7 +1128,7 @@
         const sections = document.querySelectorAll('section, .mb-20');
         sections.forEach((section, index) => {
             section.style.opacity = '0';
-            section.style.transform = 'translateY(50px)';
+            section.style.transform = 'translateY(50px)';-
             section.style.transition = `opacity 0.8s ease-out ${index * 0.1}s, transform 0.8s ease-out ${index * 0.1}s`;
 
             const sectionObserver = new IntersectionObserver((entries) => {
