@@ -1,366 +1,1074 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Neoroza</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --primary: #4f46e5;
-      --primary-light: #6366f1;
-      --primary-dark: #4338ca;
-      --secondary: #7c3aed;
-      --light: #ffffff;
-      --light-gray: #f9fafb;
-      --medium-gray: #e5e7eb;
-      --dark-gray: #6b7280;
-      --dark: #111827;
-    }
-    
-    body {
-      font-family: 'Inter', Arial, sans-serif;
-      background-color: var(--light-gray);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-    
-    .hero-gradient {
-      background: linear-gradient(135deg, rgba(79,70,229,0.1) 0%, rgba(124,58,237,0.05) 100%);
-    }
-    
-    .animate-on-scroll {
-      opacity: 0;
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    
-    .animate-on-scroll.animated {
-      opacity: 1;
-    }
-    
-    .slide-up {
-      transform: translateY(30px);
-    }
-    
-    .slide-up.animated {
-      transform: translateY(0);
-    }
-    
-    /* Mobile menu animation */
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    
-    .mobile-menu.show {
-      max-height: 300px;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .mobile-menu-item {
-      opacity: 0;
-      transform: translateX(-20px);
-      transition: all 0.3s ease-in-out;
-    }
-    
-    .mobile-menu.show .mobile-menu-item {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    
-    .mobile-menu.show .mobile-menu-item:nth-child(1) { transition-delay: 0.1s; }
-    .mobile-menu.show .mobile-menu-item:nth-child(2) { transition-delay: 0.2s; }
-    .mobile-menu.show .mobile-menu-item:nth-child(3) { transition-delay: 0.3s; }
-    .mobile-menu.show .mobile-menu-item:nth-child(4) { transition-delay: 0.4s; }
-  </style>
-</head>
-<body class="bg-gray-50 font-sans text-gray-800">
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md sticky top-0 z-50 transition-slow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center border-b border-gray-200">
-        <!-- Left (Logo) -->
-        <div class="flex items-center animate-slide-in-left" style="animation-delay: 0.1s">
-          <button id="mobileMenuBtn" class="md:hidden text-white bg-indigo-600 p-2 rounded-md mr-2 transition-medium hover:bg-indigo-700 hover:shadow-lg">
-            <i class="fas fa-bars"></i>
-          </button>
-          <a href="/" class="flex items-center space-x-2 hover-grow">
-            <img src="{{ asset('img/neorozaLogo.png') }}" alt="Neoroza Logo" class="h-8 w-auto animate-pulse" style="animation-delay: 0.5s"/>
-          </a>
-        </div>
-
-        <!-- Center Navigation -->
-        <div id="navbarNav" class="hidden md:flex space-x-6 animate-fade-in-down" style="animation-delay: 0.2s">
-          <a href="/" class="flex items-center hover:text-indigo-600 transition-medium">
-            <i class="fas fa-home mr-1"></i> Home
-          </a>
-          <a href="/about" class="flex items-center hover:text-indigo-600 transition-medium">
-            <i class="fas fa-building mr-1"></i> About
-          </a>
-          <a href="/services" class="flex items-center hover:text-indigo-600 transition-medium">
-            <i class="fas fa-cogs mr-1"></i> Services
-          </a>
-          <a href="/contact" class="flex items-center text-indigo-600 font-semibold hover:underline transition-medium">
-            <i class="fas fa-envelope mr-1"></i> Contact
-          </a>
-        </div>
-
-        {{-- <!-- Right (User) -->
-        <div class="flex items-center space-x-3 animate-slide-in-right" style="animation-delay: 0.3s">
-          <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name ?? 'User') }}&background=6366f1&color=fff"
-            alt="User Avatar" class="w-8 h-8 rounded-full border-2 border-indigo-400 transition-medium hover:scale-110 hover:shadow"/>
-          <span class="text-sm font-medium">{{ Auth::user()->name ?? 'User' }}</span>
-          <a href="/logout" class="text-gray-500 hover:text-red-500 transition-medium">
-            <i class="fas fa-sign-out-alt"></i>
-          </a>
-        </div>
-      </div>
-    </div> --}}
-  </nav>
-
-  <!-- Mobile menu - positioned outside nav to appear below the border -->
-  <div id="mobileMenu" class="md:hidden mobile-menu bg-white border-b border-gray-200 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="py-3 space-y-2">
-        <a href="/" class="mobile-menu-item block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-300 ease-in-out">
-          <i class="fas fa-home mr-2"></i> Home
-        </a>
-        <a href="/about" class="mobile-menu-item block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-300 ease-in-out">
-          <i class="fas fa-building mr-2"></i> About
-        </a>
-        <a href="/services" class="mobile-menu-item block py-2 px-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-300 ease-in-out">
-          <i class="fas fa-cogs mr-2"></i> Services
-        </a>
-        <a href="/contact" class="mobile-menu-item block py-2 px-3 text-indigo-600 bg-indigo-50 font-semibold rounded-md transition-all duration-300 ease-in-out">
-          <i class="fas fa-envelope mr-2"></i> Contact
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero-gradient py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 animate-on-scroll slide-up">
-        Hubungi <span class="text-indigo-600">Neoroza</span>
-      </h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto animate-on-scroll slide-up" style="animation-delay: 0.2s">
-        Kami siap membantu Anda dengan solusi teknologi terbaik
-      </p>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid md:grid-cols-2 gap-12">
-      <!-- Contact Form -->
-      <div class="bg-white p-8 rounded-xl shadow-md animate-on-scroll slide-up">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Kirim Pesan</h2>
-        
-        @if(session('success'))
-        <div class="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
-          {{ session('success') }}
-        </div>
-        @endif
-
-        <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
-          @csrf
-          
-          <div>
-            <label for="name" class="block text-gray-700 mb-2">Nama Lengkap</label>
-            <input type="text" id="name" name="name" required 
-                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-          </div>
-          
-          <div>
-            <label for="email" class="block text-gray-700 mb-2">Email</label>
-            <input type="email" id="email" name="email" required
-                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-          </div>
-          
-          <div>
-            <label for="phone" class="block text-gray-700 mb-2">Nomor HP (Opsional)</label>
-            <input type="tel" id="phone" name="phone"
-                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-          </div>
-          
-          <div>
-            <label for="subject" class="block text-gray-700 mb-2">Subjek</label>
-            <select id="subject" name="subject" required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-              <option value="">Pilih Subjek...</option>
-              <option value="Pertanyaan Umum">Pertanyaan Umum</option>
-              <option value="Kerjasama">Penawaran Kerjasama</option>
-              <option value="Support">Technical Support</option>
-            </select>
-          </div>
-          
-          <div>
-            <label for="message" class="block text-gray-700 mb-2">Pesan</label>
-            <textarea id="message" name="message" rows="5" required
-                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-          </div>
-          
-          <button type="submit" 
-                  class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300 w-full md:w-auto">
-            <i class="fas fa-paper-plane mr-2"></i> Kirim Pesan
-          </button>
-        </form>
-      </div>
-
-      <!-- Contact Info -->
-      <div class="bg-indigo-50 p-8 rounded-xl animate-on-scroll slide-up delay-100">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Informasi Kontak</h2>
-        
-        <div class="space-y-6">
-          <div class="flex items-start">
-            <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full mr-4">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-800">Alamat</h3>
-              <p class="text-gray-600">
-                SMKN 24 Jakarta<br>
-                Jl. Bambu Hitam No.3, RT.3/RW.1<br>
-                Bambu Apus, Cipayung<br>
-                Jakarta Timur 13890
-              </p>
-            </div>
-          </div>
-          
-          <div class="flex items-start">
-            <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full mr-4">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-800">Email</h3>
-              <a href="mailto:neorozatech@gmail.com" class="text-indigo-600 hover:underline">neorozatech@gmail.com</a>
-            </div>
-          </div>
-          
-          <div class="flex items-start">
-            <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full mr-4">
-              <i class="fab fa-whatsapp"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-800">WhatsApp</h3>
-              <a href="https://wa.me/6281383734851" class="text-indigo-600 hover:underline">+62 881-9980-70</a>
-            </div>
-          </div>
-          
-          <div class="flex items-start">
-            <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full mr-4">
-              <i class="fab fa-instagram"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold text-gray-800">Instagram</h3>
-              <a href="https://instagram.com/neoroza.tech" target="_blank" class="text-indigo-600 hover:underline">@neoroza.tech</a>
-            </div>
-          </div>
-          
-          <div class="pt-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Jam Operasional</h3>
-            <p class="text-gray-600">
-              Senin-Jumat: 08.00 - 16.00 WIB<br>
-              Sabtu: 09.00 - 14.00 WIB
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{-- <!-- Map Embed -->
-    <div class="mt-16 bg-white p-6 rounded-xl shadow-md animate-on-scroll slide-up">
-      <h2 class="text-xl font-bold text-gray-800 mb-4">Lokasi Kami</h2>
-      <div class="aspect-w-16 aspect-h-9">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.85412541529419!3d-6.194962662247247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4256b5b8a9f%3A0x1a7b1b1b1b1b1b1b!2sSMKN%2024%20Jakarta!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" 
-          width="100%" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy"
-          class="rounded-lg">
-        </iframe>
-      </div>
-    </div>
-  </div> --}}
-
-  <script>
-    // Intersection Observer untuk animasi scroll
-    const animateOnScroll = () => {
-      const elements = document.querySelectorAll('.animate-on-scroll');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
-            // Optional: Unobserve after animation
-            // observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      elements.forEach(element => {
-        observer.observe(element);
-      });
-    };
-
-    // Panggil fungsi saat halaman dimuat
-    document.addEventListener('DOMContentLoaded', () => {
-      animateOnScroll();
-      
-      // Mobile menu toggle with animation
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      
-      mobileMenuBtn.addEventListener('click', () => {
-        const icon = mobileMenuBtn.querySelector('i');
-        
-        if (mobileMenu.classList.contains('show')) {
-          // Close menu with animation
-          mobileMenu.classList.remove('show');
-          setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-          }, 300); // Wait for animation to complete
-          
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        } else {
-          // Open menu with animation
-          mobileMenu.classList.remove('hidden');
-          setTimeout(() => {
-            mobileMenu.classList.add('show');
-          }, 10); // Small delay to ensure hidden class is removed
-          
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neoroza Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-down': 'slideDown 0.5s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite'
+                    }
+                }
+            }
         }
-      });
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
 
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes pulseSoft {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Smooth focus styles */
+        .focus-ring:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+        }
+
+        /* Glass morphism effect */
+        .glass {
+            backdrop-filter: blur(16px) saturate(180%);
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Mobile menu animation */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu.open {
+            max-height: 400px;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(79, 70, 229, 0.6);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        /* Floating animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        @keyframes float-reverse {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(20px) rotate(-5deg);
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+            }
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.2) rotate(-90deg);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Button effects */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.5s;
+        }
+
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .decorative-dots {
+            background-image: radial-gradient(circle at 2px 2px, rgba(102, 126, 234, 0.15) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+
+        /* Form animations */
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-input {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid transparent;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-input:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: #6366f1;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+        }
+
+        .form-label {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            color: #6b7280;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+            padding: 0 8px;
+            border-radius: 4px;
+        }
+
+        .form-input:focus+.form-label,
+        .form-input:not(:placeholder-shown)+.form-label {
+            transform: translateY(-30px) translateX(-8px) scale(0.85);
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        /* Contact cards */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.6s;
+        }
+
+        .contact-card:hover::before {
+            left: 100%;
+        }
+
+        .contact-card:hover {
+            cursor: pointer;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            background: rgb(165, 165, 165);
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-600/10 via-purple-600/5 to-cyan-600/10 min-h-screen">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center animate-fade-in">
+                    <button id="mobileMenuToggle"
+                        class="md:hidden mr-3 px-3 rounded-lg bg-primary-500 text-white hover:bg-primary-600 transition-colors focus-ring"
+                        aria-label="Toggle menu">
+                        <i class="fas fa-bars text-sm"></i>
+                    </button>
+                    <a href="/" class="flex items-center space-x-3 group">
+                        <img src="{{ asset('img/neorozaLogo.png') }}" alt="Neoroza Logo"
+                            class="h-8 w-auto animate-pulse" style="animation-delay: 0.5s" />
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8 animate-slide-down">
+                    <a href="/"
+                        class="flex items-center space-x-2 text-slate-600 hover:text-primary-600 transition-colors">
+                        <i class="fas fa-home text-sm"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="/about"
+                        class="flex items-center space-x-2 text-slate-600 hover:text-primary-600 transition-colors">
+                        <i class="fas fa-building text-sm"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="/services"
+                        class="flex items-center space-x-2 text-slate-600 hover:text-primary-600 transition-colors">
+                        <i class="fas fa-cogs text-sm"></i>
+                        <span>Services</span>
+                    </a>
+                    <a href="/contact"
+                        class="flex items-center space-x-2 text-primary-600 font-medium hover:text-primary-700 transition-colors">
+                        <i class="fas fa-envelope text-sm"></i>
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden mobile-menu bg-white/95 backdrop-blur-md border-t border-white/20">
+            <div class="px-4 py-3 space-y-2">
+                <a href="/"
+                    class="block px-4 py-3 text-slate-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors">
+                    <i class="fas fa-home mr-3 text-sm"></i>Home
+                </a>
+                <a href="/about"
+                    class="block px-4 py-3 text-slate-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors">
+                    <i class="fas fa-building mr-3 text-sm"></i>About
+                </a>
+                <a href="/services"
+                    class="block px-4 py-3 text-primary-600 bg-primary-50 font-medium rounded-lg transition-colors">
+                    <i class="fas fa-cogs mr-3 text-sm"></i>Services
+                </a>
+                <a href="/contact"
+                    class="block px-4 py-3 text-slate-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors">
+                    <i class="fas fa-envelope mr-3 text-sm"></i>Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="absolute inset-0 "></div>
+
+        <!-- Hero Section -->
+        <section class="py-20 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="text-5xl md:text-7xl font-black text-black mb-6 animate-on-scroll zoom-in">
+                    Hubungi <span
+                        class="bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">Neoroza</span>
+                </h1>
+                <p
+                    class="text-xl md:text-2xl text-black-100 max-w-4xl mx-auto animate-on-scroll slide-up delay-200 leading-relaxed">
+                    🚀 Kami siap membantu mewujudkan visi digital Anda dengan solusi teknologi terdepan
+                </p>
+                <div class="mt-8 animate-on-scroll slide-up delay-400">
+                    <div class="inline-flex items-center space-x-2 glass text-black px-6 py-3 rounded-full">
+                        <i class="fas fa-headset text-yellow-400 bounce-in"></i>
+                        <span>Response dalam 24 jam</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Contact Form - Takes 2 columns -->
+            <div class="lg:col-span-2">
+                <div
+                    class="contact-card bg-gray-200 rounded-3xl shadow-2xl p-8 animate-on-scroll slide-up min-h-[1253px] flex flex-col justify-between">
+                    <!-- HEADER -->
+                    <div>
+                        <div class="flex items-center mb-8">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-4 pulse-glow">
+                                <i class="fas fa-paper-plane text-white text-xl"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Kirim Pesan</h2>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div id="successMessage"
+                            class="hidden mb-6 p-4 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-lg success-message">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Pesan berhasil dikirim! Kami akan segera menghubungi Anda.
+                        </div>
+
+                        <!-- FORM -->
+                        <form id="contactForm" class="space-y-6">
+                            <!-- Name & Email -->
+                            <div class="grid md:grid-cols-1 gap-6">
+                                <div class="form-group">
+                                    <input type="text" id="name" name="name" required
+                                        class="form-input w-full px-4 py-4 h-[100px] rounded-xl focus:outline-none"
+                                        placeholder=" ">
+                                    <label for="name" class="form-label"><i class="fas fa-user mr-2"></i>Nama
+                                        Lengkap</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" required
+                                        class="form-input w-full px-4 py-4 h-[100px] rounded-xl focus:outline-none"
+                                        placeholder=" ">
+                                    <label for="email" class="form-label"><i
+                                            class="fas fa-envelope mr-2"></i>Email</label>
+                                </div>
+                            </div>
+
+                            <!-- Phone & Subject -->
+                            <div class="grid md:grid-cols-1 gap-6">
+                                <div class="form-group">
+                                    <input type="tel" id="phone" name="phone"
+                                        class="form-input w-full px-4 py-4 h-[100px] rounded-xl focus:outline-none"
+                                        placeholder=" ">
+                                    <label for="phone" class="form-label"><i class="fas fa-phone mr-2"></i>Nomor HP
+                                        (Opsional)</label>
+                                </div>
+                                <div class="form-group">
+                                    <select id="subject" name="subject" required
+                                        class="form-input w-full px-4 py-4 h-[100px] rounded-xl focus:outline-none">
+                                        <option value="">Pilih Subjek...</option>
+                                        <option value="Pertanyaan Umum">💬 Pertanyaan Umum</option>
+                                        <option value="Kerjasama">🤝 Penawaran Kerjasama</option>
+                                        <option value="Support">🛠️ Technical Support</option>
+                                        <option value="Quote">💰 Request Quote</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Message -->
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="6" required
+                                    class="form-input w-full px-4 py-4 min-h-[300px] rounded-xl focus:outline-none resize-none"
+                                    placeholder=" "></textarea>
+                                <label for="message" class="form-label"><i class="fas fa-comment-dots mr-2"></i>Pesan
+                                    Anda</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- BUTTON: Stuck to Bottom -->
+                    <div class="pt-6">
+                        <button type="submit"
+                            class="btn-glow text-white px-8 py-4 h-[60px] rounded-xl font-bold text-lg w-full md:w-auto relative overflow-hidden">
+                            <span class="relative z-10">
+                                <i class="fas fa-rocket mr-2"></i> Kirim Pesan
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Contact Info Sidebar -->
+            <div class="space-y-6">
+                <!-- Contact Cards -->
+                <div class="contact-card rounded-3xl shadow-2xl p-6 animate-on-scroll slide-up delay-100">
+                    <div class="text-center mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
+                            <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Alamat</h3>
+                    </div>
+                    <div class="text-center text-gray-600 space-y-1">
+                        <p class="font-semibold">SMKN 24 Jakarta</p>
+                        <p>Jl. Bambu Hitam No.3, RT.3/RW.1</p>
+                        <p>Bambu Apus, Cipayung</p>
+                        <p>Jakarta Timur 13890</p>
+                    </div>
+                </div>
+
+                <div class="contact-card rounded-3xl shadow-2xl p-6 animate-on-scroll slide-up delay-200">
+                    <div class="text-center mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
+                            <i class="fas fa-envelope text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Email</h3>
+                    </div>
+                    <div class="text-center">
+                        <a href="mailto:neorozatech@gmail.com"
+                            class="text-purple-600 hover:text-purple-800 font-semibold text-lg transition-colors duration-300">
+                            neorozatech@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card rounded-3xl shadow-2xl p-6 animate-on-scroll slide-up delay-300">
+                    <div class="text-center mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
+                            <i class="fab fa-whatsapp text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">WhatsApp</h3>
+                    </div>
+                    <div class="text-center">
+                        <a href="https://wa.me/6281383734851" target="_blank"
+                            class="text-green-600 hover:text-green-800 font-semibold text-lg transition-colors duration-300">
+                            +62 881-9980-70
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card rounded-3xl shadow-2xl p-6 animate-on-scroll slide-up delay-400">
+                    <div class="text-center mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
+                            <i class="fab fa-instagram text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Instagram</h3>
+                    </div>
+                    <div class="text-center">
+                        <a href="https://www.instagram.com/neorozatech" target="_blank"
+                            class="text-pink-600 hover:text-pink-800 font-semibold text-lg transition-colors duration-300">
+                            @neorozatech
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Operating Hours -->
+                <div class="glass rounded-3xl p-6 animate-on-scroll slide-up delay-500">
+                    <div class="text-center mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
+                            <i class="fas fa-clock text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-black">Jam Operasional</h3>
+                    </div>
+                    <div class="text-gray-400 space-y-2 text-center">
+                        <div class="flex justify-between items-center">
+                            <span>Senin-Jumat:</span>
+                            <span class="font-semibold">08:00 - 16:00 WIB</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Sabtu:</span>
+                            <span class="font-semibold">09:00 - 14:00 WIB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div
+            class="mt-20 text-center glass rounded-3xl shadow-2xl p-12 animate-on-scroll zoom-in relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-10"></div>
+            <div class="relative z-10">
+                <div
+                    class="w-20 h-20 bg-gradient-to-r from-yellow-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 pulse-glow">
+                    <i class="fas fa-star text-2xl text-white"></i>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-500 mb-6">
+                    Siap untuk <span
+                        class="bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">Kolaborasi?</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+                    🚀 Mari diskusikan proyek impian Anda! Tim Neoroza siap memberikan solusi teknologi terbaik.
+                </p>
+                <div class="flex justify-center items-center space-x-6">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-24 bg-slate-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center">
+                <div class="flex justify-center items-center space-x-3 mb-4">
+                    <div class="rounded-lg flex items-center justify-center">
+                        <img src="{{ asset('img/neorozaLogo.png') }}" alt="Neoroza Logo"
+                            class="h-12 w-auto animate-pulse" style="animation-delay: 0.5s" />
+                    </div>
+                </div>
+                <p class="text-slate-400 mb-6">
+                    Building the future, one solution at a time.
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.instagram.com/neorozatech"
+                        class="text-slate-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:neorozatech@gmail.com" class="text-slate-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/628811998070" class="text-slate-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = mobileMenuToggle.querySelector('i');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('open');
+
+            if (isOpen) {
+                mobileMenu.classList.remove('open');
+                menuIcon.className = 'fas fa-bars text-sm';
+            } else {
+                mobileMenu.classList.add('open');
+                menuIcon.className = 'fas fa-times text-sm';
+            }
         });
-      });
-    });
 
-    // Jalankan lagi saat ada dynamic content
-    window.addEventListener('load', animateOnScroll);
-  </script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission (placeholder)
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe animated elements
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('open');
+                menuIcon.className = 'fas fa-bars text-sm';
+            }
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                menuIcon.className = 'fas fa-bars text-sm';
+                mobileMenuToggle.focus();
+            }
+        });
+    </script>
+
+    <script>
+        // Intersection Observer untuk animasi scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const icon = mobileMenuBtn.querySelector('i');
+
+            if (mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                mobileMenu.classList.add('show');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Form submission with animation
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Simulate form submission
+            const formData = new FormData(contactForm);
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+
+            // Add loading state
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Mengirim...';
+            submitButton.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                // Show success message with animation
+                successMessage.classList.remove('hidden');
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Reset form
+                contactForm.reset();
+
+                // Reset button
+                submitButton.innerHTML = '<span class="relative z-10"><i class="fas fa-rocket mr-2"></i> Kirim Pesan</span>';
+                submitButton.disabled = false;
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
+
+                // Add confetti effect (optional)
+                createConfetti();
+
+            }, 2000);
+        });
+
+        // Confetti effect
+        const createConfetti = () => {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57'];
+            const confettiCount = 50;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+          position: fixed;
+          width: 10px;
+          height: 10px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          left: ${Math.random() * 100}%;
+          top: -10px;
+          z-index: 9999;
+          pointer-events: none;
+          border-radius: 50%;
+        `;
+
+                document.body.appendChild(confetti);
+
+                const animation = confetti.animate([
+                    {
+                        transform: 'translateY(-100vh) rotate(0deg)',
+                        opacity: 1
+                    },
+                    {
+                        transform: `translateY(100vh) rotate(${Math.random() * 360}deg)`,
+                        opacity: 0
+                    }
+                ], {
+                    duration: Math.random() * 3000 + 2000,
+                    easing: 'cubic-bezier(0.5, 0, 0.5, 1)'
+                });
+
+                animation.onfinish = () => confetti.remove();
+            }
+        };
+
+        // Parallax effect for background elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating, .floating-reverse');
+
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.1 + (index * 0.05);
+                element.style.transform += ` translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Form input animations
+        const formInputs = document.querySelectorAll('.form-input');
+
+        formInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    input.parentElement.classList.remove('focused');
+                }
+            });
+
+            // Check if input has value on page load
+            if (input.value) {
+                input.parentElement.classList.add('focused');
+            }
+        });
+
+        // Add typing effect to hero text
+        const typeWriter = (element, text, speed = 100) => {
+            let i = 0;
+            element.innerHTML = '';
+
+            const type = () => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            };
+
+            type();
+        };
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add mouse trail effect
+        const createMouseTrail = () => {
+            const trail = [];
+            const trailLength = 20;
+
+            document.addEventListener('mousemove', (e) => {
+                trail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
+
+                if (trail.length > trailLength) {
+                    trail.shift();
+                }
+
+                // Create trail elements
+                trail.forEach((point, index) => {
+                    const trailElement = document.createElement('div');
+                    const opacity = index / trailLength;
+                    const size = (index / trailLength) * 10;
+
+                    trailElement.style.cssText = `
+            position: fixed;
+            width: ${size}px;
+            height: ${size}px;
+            background: radial-gradient(circle, rgba(99,102,241,${opacity}) 0%, transparent 70%);
+            left: ${point.x}px;
+            top: ${point.y}px;
+            pointer-events: none;
+            z-index: 9998;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+          `;
+
+                    document.body.appendChild(trailElement);
+
+                    setTimeout(() => {
+                        trailElement.remove();
+                    }, 500);
+                });
+            });
+        };
+
+        // Interactive background effect
+        const createInteractiveBackground = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.3;
+      `;
+
+            document.body.appendChild(canvas);
+
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            };
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const particles = [];
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 2,
+                    vy: (Math.random() - 0.5) * 2,
+                    size: Math.random() * 3 + 1,
+                    hue: Math.random() * 360
+                });
+            }
+
+            const animate = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach(particle => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+
+                    if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${particle.hue}, 70%, 60%, 0.8)`;
+                    ctx.fill();
+
+                    particle.hue += 0.5;
+                });
+
+                requestAnimationFrame(animate);
+            };
+
+            animate();
+        };
+
+        // Initialize all effects
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+            createMouseTrail();
+            createInteractiveBackground();
+
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 100);
+
+            // Add entrance animations to elements
+            setTimeout(() => {
+                document.querySelectorAll('.bounce-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.animationDelay = `${index * 0.1}s`;
+                        el.classList.add('animate');
+                    }, index * 100);
+                });
+            }, 500);
+        });
+
+        // Re-run animations on load
+        window.addEventListener('load', () => {
+            animateOnScroll();
+        });
+    </script>
 </body>
+
 </html>
