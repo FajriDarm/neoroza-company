@@ -250,7 +250,7 @@
             </div>
             <div>
               <h3 class="font-semibold text-gray-800">WhatsApp</h3>
-              <a href="https://wa.me/6281383734851" class="text-indigo-600 hover:underline">+62 881-1998-070</a>
+              <a href="https://wa.me/6281383734851" class="text-indigo-600 hover:underline">+62 881-9980-70</a>
             </div>
           </div>
           
