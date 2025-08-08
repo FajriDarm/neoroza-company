@@ -668,55 +668,43 @@
       </div>
     </div>
 
-    <!-- Maintenance Section -->
-    <div class="glass rounded-3xl p-12 mb-20 animate-on-scroll fade-in relative overflow-hidden">
-      <div class="absolute inset-0 bg-white"></div>
-      <div class="flex flex-col lg:flex-row items-center relative z-10">
-        <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
-          <div class="flex items-center mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
-              <i class="fas fa-tools text-white text-xl"></i>
-            </div>
-            <h2 class="text-3xl font-bold text-black">24/7 Support & Maintenance</h2>
-          </div>
-          <p class="text-black-100 mb-6 text-lg leading-relaxed">
-            🛠️ Dukungan teknis premium dengan response time cepat dan monitoring proaktif untuk memastikan
-            sistem Anda
-            selalu optimal.
-          </p>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="flex items-start text-black-100">
-              <i class="fas fa-rocket text-yellow-400 mt-1 mr-3"></i>
-              <span>Performance monitoring real-time</span>
-            </div>
-            <div class="flex items-start text-black-100">
-              <i class="fas fa-shield-alt text-green-400 mt-1 mr-3"></i>
-              <span>Security updates otomatis</span>
-            </div>
-            <div class="flex items-start text-black-100">
-              <i class="fas fa-cloud text-blue-400 mt-1 mr-3"></i>
-              <span>Backup otomatis multi-location</span>
-            </div>
-            <div class="flex items-start text-black-100">
-              <i class="fas fa-chart-line text-pink-400 mt-1 mr-3"></i>
-              <span>Performance optimization berkala</span>
-            </div>
-          </div>
-        </div>
-        <div class="lg:w-1/2">
-          <div class="relative">
-            <img
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-              alt="24/7 Support" class="rounded-2xl shadow-2xl w-full h-auto floating">
-            <div
-              class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center floating-reverse">
-              <i class="fas fa-headset text-2xl text-white"></i>
-            </div>
-          </div>
+<!-- Maintenance Section -->
+<div class="glass rounded-3xl p-12 mb-20 animate-on-scroll fade-in relative overflow-hidden">
+  <div class="absolute inset-0 bg-white"></div>
+  <div class="relative z-10">
+    <div class="text-center mb-10">
+      <div class="flex justify-center items-center mb-6">
+        <div
+          class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto">
+          <i class="fas fa-tools text-white text-2xl"></i>
         </div>
       </div>
+      <h2 class="text-3xl font-bold text-black mb-4">24/7 Support & Maintenance</h2>
+      <p class="text-black-100 text-lg max-w-3xl mx-auto leading-relaxed">
+        🛠️ Dukungan teknis premium dengan response time cepat dan monitoring proaktif untuk memastikan
+        sistem Anda selalu optimal.
+      </p>
     </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="flex items-start text-black-100 bg-white/50 p-4 rounded-xl">
+        <i class="fas fa-rocket text-yellow-400 mt-1 mr-3 text-lg"></i>
+        <span>Performance monitoring real-time</span>
+      </div>
+      <div class="flex items-start text-black-100 bg-white/50 p-4 rounded-xl">
+        <i class="fas fa-shield-alt text-green-400 mt-1 mr-3 text-lg"></i>
+        <span>Security updates otomatis</span>
+      </div>
+      <div class="flex items-start text-black-100 bg-white/50 p-4 rounded-xl">
+        <i class="fas fa-cloud text-blue-400 mt-1 mr-3 text-lg"></i>
+        <span>Backup otomatis multi-location</span>
+      </div>
+      <div class="flex items-start text-black-100 bg-white/50 p-4 rounded-xl">
+        <i class="fas fa-chart-line text-pink-400 mt-1 mr-3 text-lg"></i>
+        <span>Performance optimization berkala</span>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Process Section -->
     <div class="mb-20">
@@ -922,7 +910,6 @@
       }
     });
 
-    // Add keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
         mobileMenu.classList.remove('open');
