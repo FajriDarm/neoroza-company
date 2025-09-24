@@ -614,7 +614,7 @@
         </div>
         <h3 class="text-2xl font-bold text-gray-800 mb-4">Website Custome</h3>
         <p class="text-gray-600 mb-6 text-lg">
-          🌟 Website premium dengan design award-winning dan performance lightning-fast.
+          🌟 Website custom dengan design award-winning dan performance lightning-fast.
         </p>
         <ul class="space-y-3 text-gray-700">
           <li class="flex items-start">
