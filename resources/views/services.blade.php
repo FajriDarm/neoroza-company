@@ -577,7 +577,7 @@
           class="icon-container bg-gradient-to-br from-indigo-500 to-purple-600 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 pulse-glow">
           <i class="fas fa-laptop-code text-2xl text-white"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Aplikasi Custom Premium</h3>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Aplikasi Custome</h3>
         <p class="text-gray-600 mb-6 text-lg">
           ⚡ Pengembangan aplikasi enterprise dengan teknologi cutting-edge dan arsitektur scalable.
         </p>
@@ -612,7 +612,7 @@
           class="icon-container bg-gradient-to-br from-orange-500 to-red-600 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 pulse-glow">
           <i class="fas fa-globe text-2xl text-white"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Website Premium</h3>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Website Custome</h3>
         <p class="text-gray-600 mb-6 text-lg">
           🌟 Website premium dengan design award-winning dan performance lightning-fast.
         </p>
