@@ -643,9 +643,9 @@
           class="icon-container bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 pulse-glow">
           <i class="fas fa-paint-brush text-2xl text-white"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">UI/UX Design Studio</h3>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">UI/UX Design</h3>
         <p class="text-gray-600 mb-6 text-lg">
-          🎨 Design thinking approach dengan user research mendalam dan prototype interaktif.
+          🎨 We create apps and websites that are user-friendly, attractive, and easy to use through a user-focused design thinking approach.
         </p>
         <ul class="space-y-3 text-gray-700">
           <li class="flex items-start">
@@ -654,7 +654,7 @@
           </li>
           <li class="flex items-start">
             <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-2 mr-3"></div>
-            <span>High-fidelity prototype dengan micro-interactions</span>
+            <span>High-fidelity prototypes with real interactions.</span>
           </li>
           <li class="flex items-start">
             <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-2 mr-3"></div>
@@ -662,7 +662,7 @@
           </li>
           <li class="flex items-start">
             <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-2 mr-3"></div>
-            <span>Usability testing dan iteration</span>
+            <span>Usability testing and continuous improvements.</span>
           </li>
         </ul>
       </div>

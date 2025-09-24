@@ -498,31 +498,17 @@
                     <div class="space-y-3">
                         <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
                             <div
-                                class="w-8 h-8 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center mr-3">
-                                <i class="fas fa-user text-white text-xs"></i>
-                            </div>
-                            <span class="font-medium text-slate-700">Ari Reivansyah</span>
-                        </div>
-                        <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
-                            <div
-                                class="w-8 h-8 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center mr-3">
-                                <i class="fas fa-user text-white text-xs"></i>
-                            </div>
-                            <span class="font-medium text-slate-700">Muhammad Daffa Al-Ridzky</span>
-                        </div>
-                        <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
-                            <div
                                 class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mr-3">
                                 <i class="fas fa-user text-white text-xs"></i>
                             </div>
-                            <span class="font-medium text-slate-700">Rifqi Kamalludin</span>
+                            <span class="font-medium text-slate-700">Rifqi Kamaluddin</span>
                         </div>
                         <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
                             <div
                                 class="w-8 h-8 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mr-3">
                                 <i class="fas fa-user text-white text-xs"></i>
                             </div>
-                            <span class="font-medium text-slate-700">Andhika Dani</span>
+                            <span class="font-medium text-slate-700">Fajri Darmawan</span>
                         </div>
                     </div>
                 </div>
@@ -539,10 +525,10 @@
                     <div class="space-y-3">
                         <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
                             <div
-                                class="w-8 h-8 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center mr-3">
+                                class="w-8 h-8 bg-gradient-to-br from-pink-400 to-red-500 rounded-full flex items-center justify-center mr-3">
                                 <i class="fas fa-user text-white text-xs"></i>
                             </div>
-                            <span class="font-medium text-slate-700">Triandini Puspita Sari</span>
+                            <span class="font-medium text-slate-700">Alfina Khomarul Asih</span>
                         </div>
                         <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
                             <div
@@ -557,13 +543,6 @@
                                 <i class="fas fa-user text-white text-xs"></i>
                             </div>
                             <span class="font-medium text-slate-700">Keysha Syakilla Ramadhani</span>
-                        </div>
-                        <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
-                            <div
-                                class="w-8 h-8 bg-gradient-to-br from-pink-400 to-red-500 rounded-full flex items-center justify-center mr-3">
-                                <i class="fas fa-user text-white text-xs"></i>
-                            </div>
-                            <span class="font-medium text-slate-700">Alfina Khomarul Asih</span>
                         </div>
                     </div>
                 </div>
@@ -580,13 +559,6 @@
                     <div class="space-y-3">
                         <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
                             <div
-                                class="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mr-3">
-                                <i class="fas fa-user text-white text-xs"></i>
-                            </div>
-                            <span class="font-medium text-slate-700">Alfina Khomarul Asih</span>
-                        </div>
-                        <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
-                            <div
                                 class="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mr-3">
                                 <i class="fas fa-user text-white text-xs"></i>
                             </div>
@@ -598,13 +570,6 @@
                                 <i class="fas fa-user text-white text-xs"></i>
                             </div>
                             <span class="font-medium text-slate-700">Restu Adi Putra</span>
-                        </div>
-                        <div class="flex items-center p-3 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors">
-                            <div
-                                class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mr-3">
-                                <i class="fas fa-user text-white text-xs"></i>
-                            </div>
-                            <span class="font-medium text-slate-700">Fajri Darmawan</span>
                         </div>
                     </div>
                 </div>
