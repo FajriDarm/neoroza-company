@@ -217,22 +217,22 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8 animate-slide-down">
-                    <a href="/"
+                    <a href="{{ route('dashboard') }}"
                         class="flex items-center space-x-2 text-slate-600 hover:text-primary-600 transition-colors">
                         <i class="fas fa-home text-sm"></i>
                         <span>Home</span>
                     </a>
-                    <a href="/about"
+                    <a href="{{ route('about') }}"
                         class="flex items-center space-x-2 text-primary-600 font-medium hover:text-primary-700 transition-colors">
                         <i class="fas fa-building text-sm"></i>
                         <span>About</span>
                     </a>
-                    <a href="/services"
+                    <a href="{{ route('services') }}"
                         class="flex items-center space-x-2 text-slate-600 hover:text-primary-600 transition-colors">
                         <i class="fas fa-cogs text-sm"></i>
                         <span>Services</span>
                     </a>
-                    <a href="/contact"
+                    <a href="{{ route('contact') }}"
                         class="flex items-center space-x-2 text-slate-600 hover:text-primary-600 transition-colors">
                         <i class="fas fa-envelope text-sm"></i>
                         <span>Contact</span>
