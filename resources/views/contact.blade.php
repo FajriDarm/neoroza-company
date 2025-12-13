@@ -408,19 +408,19 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="md:hidden mobile-menu bg-white/95 backdrop-blur-md border-t border-white/20">
             <div class="px-4 py-3 space-y-2">
-                <a href="/"
+                <a href="{{ route('dashboard') }}"
                     class="block px-4 py-3 text-slate-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors">
                     <i class="fas fa-home mr-3 text-sm"></i>Home
                 </a>
-                <a href="/about"
+                <a href="{{ route('about') }}"
                     class="block px-4 py-3 text-slate-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors">
                     <i class="fas fa-building mr-3 text-sm"></i>About
                 </a>
-                <a href="/services"
+                <a href="{{ route('services') }}"
                     class="block px-4 py-3 text-primary-600 bg-primary-50 font-medium rounded-lg transition-colors">
                     <i class="fas fa-cogs mr-3 text-sm"></i>Services
                 </a>
-                <a href="/contact"
+                <a href="{{ route('contact') }}"
                     class="block px-4 py-3 text-slate-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors">
                     <i class="fas fa-envelope mr-3 text-sm"></i>Contact
                 </a>
