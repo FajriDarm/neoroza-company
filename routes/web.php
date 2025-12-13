@@ -8,7 +8,7 @@ use App\Http\Controllers\ContactController;
 // Contoh halaman setelah login
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware('auth')->name('dashboard');
+})->name('dashboard');
 
 // Route About Us
 Route::get('/about', function () {
