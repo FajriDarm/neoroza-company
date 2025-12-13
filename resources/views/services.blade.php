@@ -577,7 +577,7 @@
           class="icon-container bg-gradient-to-br from-indigo-500 to-purple-600 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 pulse-glow">
           <i class="fas fa-laptop-code text-2xl text-white"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Aplikasi Custom Premium</h3>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Aplikasi Custome</h3>
         <p class="text-gray-600 mb-6 text-lg">
           ⚡ Pengembangan aplikasi enterprise dengan teknologi cutting-edge dan arsitektur scalable.
         </p>
@@ -612,9 +612,9 @@
           class="icon-container bg-gradient-to-br from-orange-500 to-red-600 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 pulse-glow">
           <i class="fas fa-globe text-2xl text-white"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Website Premium</h3>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Website Custome</h3>
         <p class="text-gray-600 mb-6 text-lg">
-          🌟 Website premium dengan design award-winning dan performance lightning-fast.
+          🌟 Website custom dengan design award-winning dan performance lightning-fast.
         </p>
         <ul class="space-y-3 text-gray-700">
           <li class="flex items-start">
@@ -643,9 +643,9 @@
           class="icon-container bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 pulse-glow">
           <i class="fas fa-paint-brush text-2xl text-white"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">UI/UX Design Studio</h3>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">UI/UX Design</h3>
         <p class="text-gray-600 mb-6 text-lg">
-          🎨 Design thinking approach dengan user research mendalam dan prototype interaktif.
+          🎨 We create apps and websites that are user-friendly, attractive, and easy to use through a user-focused design thinking approach.
         </p>
         <ul class="space-y-3 text-gray-700">
           <li class="flex items-start">
@@ -654,7 +654,7 @@
           </li>
           <li class="flex items-start">
             <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-2 mr-3"></div>
-            <span>High-fidelity prototype dengan micro-interactions</span>
+            <span>High-fidelity prototypes with real interactions.</span>
           </li>
           <li class="flex items-start">
             <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-2 mr-3"></div>
@@ -662,61 +662,49 @@
           </li>
           <li class="flex items-start">
             <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mt-2 mr-3"></div>
-            <span>Usability testing dan iteration</span>
+            <span>Usability testing and continuous improvements.</span>
           </li>
         </ul>
       </div>
     </div>
 
-    <!-- Maintenance Section -->
-    <div class="glass rounded-3xl p-12 mb-20 animate-on-scroll fade-in relative overflow-hidden">
-      <div class="absolute inset-0 bg-white"></div>
-      <div class="flex flex-col lg:flex-row items-center relative z-10">
-        <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
-          <div class="flex items-center mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
-              <i class="fas fa-tools text-white text-xl"></i>
-            </div>
-            <h2 class="text-3xl font-bold text-black">24/7 Support & Maintenance</h2>
-          </div>
-          <p class="text-black-100 mb-6 text-lg leading-relaxed">
-            🛠️ Dukungan teknis premium dengan response time cepat dan monitoring proaktif untuk memastikan
-            sistem Anda
-            selalu optimal.
-          </p>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="flex items-start text-black-100">
-              <i class="fas fa-rocket text-yellow-400 mt-1 mr-3"></i>
-              <span>Performance monitoring real-time</span>
-            </div>
-            <div class="flex items-start text-black-100">
-              <i class="fas fa-shield-alt text-green-400 mt-1 mr-3"></i>
-              <span>Security updates otomatis</span>
-            </div>
-            <div class="flex items-start text-black-100">
-              <i class="fas fa-cloud text-blue-400 mt-1 mr-3"></i>
-              <span>Backup otomatis multi-location</span>
-            </div>
-            <div class="flex items-start text-black-100">
-              <i class="fas fa-chart-line text-pink-400 mt-1 mr-3"></i>
-              <span>Performance optimization berkala</span>
-            </div>
-          </div>
-        </div>
-        <div class="lg:w-1/2">
-          <div class="relative">
-            <img
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-              alt="24/7 Support" class="rounded-2xl shadow-2xl w-full h-auto floating">
-            <div
-              class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center floating-reverse">
-              <i class="fas fa-headset text-2xl text-white"></i>
-            </div>
-          </div>
+<!-- Maintenance Section -->
+<div class="glass rounded-3xl p-12 mb-20 animate-on-scroll fade-in relative overflow-hidden">
+  <div class="absolute inset-0 bg-white"></div>
+  <div class="relative z-10">
+    <div class="text-center mb-10">
+      <div class="flex justify-center items-center mb-6">
+        <div
+          class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto">
+          <i class="fas fa-tools text-white text-2xl"></i>
         </div>
       </div>
+      <h2 class="text-3xl font-bold text-black mb-4">24/7 Support & Maintenance</h2>
+      <p class="text-black-100 text-lg max-w-3xl mx-auto leading-relaxed">
+        🛠️ Dukungan teknis premium dengan response time cepat dan monitoring proaktif untuk memastikan
+        sistem Anda selalu optimal.
+      </p>
     </div>
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="flex items-start text-black-100 bg-white/50 p-4 rounded-xl">
+        <i class="fas fa-rocket text-yellow-400 mt-1 mr-3 text-lg"></i>
+        <span>Performance monitoring real-time</span>
+      </div>
+      <div class="flex items-start text-black-100 bg-white/50 p-4 rounded-xl">
+        <i class="fas fa-shield-alt text-green-400 mt-1 mr-3 text-lg"></i>
+        <span>Security updates otomatis</span>
+      </div>
+      <div class="flex items-start text-black-100 bg-white/50 p-4 rounded-xl">
+        <i class="fas fa-cloud text-blue-400 mt-1 mr-3 text-lg"></i>
+        <span>Backup otomatis multi-location</span>
+      </div>
+      <div class="flex items-start text-black-100 bg-white/50 p-4 rounded-xl">
+        <i class="fas fa-chart-line text-pink-400 mt-1 mr-3 text-lg"></i>
+        <span>Performance optimization berkala</span>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Process Section -->
     <div class="mb-20">
@@ -922,7 +910,6 @@
       }
     });
 
-    // Add keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
         mobileMenu.classList.remove('open');
