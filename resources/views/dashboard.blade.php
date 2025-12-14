@@ -209,7 +209,7 @@
             aria-label="Toggle menu">
             <i class="fas fa-bars text-sm"></i>
           </button>
-          <a href="/" class="flex items-center space-x-3 group">
+          <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 group">
             <img src="{{ asset('img/neorozaLogo.png') }}" alt="Neoroza Logo" class="h-8 w-auto animate-pulse"
               style="animation-delay: 0.5s" />
           </a>
@@ -319,7 +319,7 @@
 
           <!-- Button -->
           <div class="flex items-center justify-between">
-            <a href="/about"
+            <a href="{{ route('about') }}"
               class="btn-glow inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 group/btn relative overflow-hidden">
               <!-- Button Shine Effect -->
               <div
@@ -397,7 +397,7 @@
 
           <!-- Button -->
           <div class="flex items-center justify-between">
-            <a href="/services"
+            <a href="{{ route('services') }}"
               class="btn-glow inline-flex items-center space-x-3 bg-gradient-to-r from-green-500 via-green-600 to-emerald-500 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl hover:shadow-green-500/30 transition-all duration-300 group/btn relative overflow-hidden">
               <!-- Button Shine Effect -->
               <div
@@ -477,7 +477,7 @@
 
           <!-- Button -->
           <div class="flex items-center justify-between">
-            <a href="#contact-form"
+            <a href="{{ route('contact') }}"
               class="btn-glow inline-flex items-center space-x-3 bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl hover:shadow-pink-500/30 transition-all duration-300 group/btn relative overflow-hidden">
 
               <!-- Button Shine Effect -->

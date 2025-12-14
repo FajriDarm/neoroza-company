@@ -399,7 +399,7 @@
             aria-label="Toggle menu">
             <i class="fas fa-bars text-sm"></i>
           </button>
-          <a href="/" class="flex items-center space-x-3 group">
+          <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 group">
             <img src="{{ asset('img/neorozaLogo.png') }}" alt="Neoroza Logo" class="h-8 w-auto animate-pulse"
               style="animation-delay: 0.5s" />
           </a>
@@ -797,7 +797,6 @@
             class="glass text-black px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:bg-white hover:bg-opacity-20 flex items-center">
             <i class="fas fa-phone mr-2"></i>
             Hubungi Kami Sekarang
-          </a href="">
         </div>
         <div class="flex justify-center items-center space-x-6 mt-8">
           <div class="flex items-center text-gray-600">

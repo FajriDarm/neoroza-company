@@ -373,7 +373,7 @@
                         aria-label="Toggle menu">
                         <i class="fas fa-bars text-sm"></i>
                     </button>
-                    <a href="/" class="flex items-center space-x-3 group">
+                    <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 group">
                         <img src="{{ asset('img/neorozaLogo.png') }}" alt="Neoroza Logo"
                             class="h-8 w-auto animate-pulse" style="animation-delay: 0.5s" />
                     </a>
