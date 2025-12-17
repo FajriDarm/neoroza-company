@@ -459,7 +459,7 @@
     <!-- Hero Section -->
     <section class="py-20 relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h1 class="text-5xl md:text-7xl font-black text-white mb-6 animate-on-scroll zoom-in">
+        <h1 class="text-5xl md:text-7xl font-black text-black mb-6 animate-on-scroll zoom-in">
           Layanan <span
             class="bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">Neoroza</span>
         </h1>
