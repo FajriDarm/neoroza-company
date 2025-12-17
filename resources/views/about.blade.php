@@ -277,7 +277,7 @@
 
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-8 animate-fade-in-up">
-                    Tentang <span class="text-gradient">Neoroza</span>
+                    Tentang <span class="bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent animate-float">Neoroza</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed animate-fade-in-up"
                     style="animation-delay: 0.2s;">

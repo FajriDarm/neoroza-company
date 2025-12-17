@@ -461,7 +461,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h1 class="text-5xl md:text-7xl font-black text-black mb-6 animate-on-scroll zoom-in">
           Layanan <span
-            class="bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">Neoroza</span>
+            class="bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent animate-float">Neoroza</span>
         </h1>
         <p
           class="text-xl md:text-2xl text-black-100 max-w-4xl mx-auto animate-on-scroll slide-up delay-200 leading-relaxed">
